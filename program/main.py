@@ -21,16 +21,14 @@ sensor = dht.DHT22(machine.Pin(15))
 
 
 
-ESTADO = { #parametros no volatiles
+estado = { #parametros no volatiles
     'setpoint': 20,
     'periodo':20, #cada tiempo publica 
     'modo': 'automatico',
     'rele':0, #0 esta off 1 prendido
 }
 
-
-cargar_estado(ESTADO)
-
+cargar_estado(estado)
 
 async def main(client):
     await client.connect()
@@ -39,7 +37,7 @@ async def main(client):
     while True:
         print('publish', n)
         # If WiFi is down the following will pause for the duration.
-        await client.publish('result', '{} {}'.format(n, client.REPUB_COUNT), qos = 1)
+        await client.publish(ID_DISPOSITIVO, '{} {}'.format(n, client.REPUB_COUNT), qos = 1)
         n += 1
         await asyncio.sleep(10)  # Broker is slow
 
