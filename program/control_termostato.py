@@ -2,7 +2,7 @@ import uasyncio as asyncio
 
 async def control_termostato(rele, estado):
     while True:
-        if estado['modo'] == 'auto':
+        if estado['modo'] == 'automatico':
             if estado['temperatura'] > estado['setpoint']:
                 rele.value(0)
             else:
