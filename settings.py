@@ -1,3 +1,3 @@
-SSID = "Your_SSID"
-password = "Your_Password"
-BROKER = "Your_Broker_Address"
+SSID = "SalaTI_D1"
+password = "edupublica"
+BROKER = "fiounam.duckdns.org"
