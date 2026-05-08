@@ -82,7 +82,7 @@ class MsgQueue:
 config = {
     "client_id": hexlify(unique_id()),
     "server": None,
-    "port": 0,
+    "port": 1883,
     "user": "",
     "password": "",
     "keepalive": 60,

@@ -8,9 +8,9 @@ import binascii
 
 from persistencia import cargar_estado, guardar_estado
 from medicion import medir, publicar
-from control import control_termostato
-from mqtt_handler import escuchar_mensajes
-from destellar import destellar
+from control_termostato import control_termostato
+from escuchar_mensajes import escuchar_mensajes
+from destello import destellar
 
 SERVER = config['server']
 ID_DISPOSITIVO = binascii.hexlify(machine.unique_id()).decode()
@@ -57,12 +57,6 @@ async def main(client):
     while True:
         await asyncio.sleep(60)
 
-# Define configuration
-config['subs_cb'] = sub_cb
-config['server'] = SERVER
-config['connect_coro'] = conn_han
-config['wifi_coro'] = wifi_han
-config['ssl'] = True
 
 # Set up client
 MQTTClient.DEBUG = True  # Optional
